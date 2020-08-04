@@ -104,6 +104,7 @@ class _LoginPageState extends State<LoginPage>
                                   new Padding(
                                     padding: EdgeInsets.all(15.0),
                                     child: TextFormField(
+                                      keyboardType: TextInputType.phone,
                                       style: TextStyle(
                                           fontSize: 13,
                                           fontFamily: 'BwSurcoBook'

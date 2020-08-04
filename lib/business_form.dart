@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:halopos/AppBarr.dart';
 import 'package:halopos/components/loading_dialog.dart';
+import 'package:halopos/components/main_drawer.dart';
 import 'package:halopos/models/area_model.dart';
 import 'package:halopos/models/business_type_model.dart';
 import 'package:halopos/models/selection_model.dart';
@@ -457,9 +459,8 @@ class _BusinessFormPageState extends State<BusinessFormPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: cAppBar(widget.title),
+      drawer: MainDrawer(),
       backgroundColor: Colors.lightBlue,
       body: Builder(
           builder: (BuildContext context) {

@@ -89,6 +89,7 @@ class _RegistrationPageState extends State<RegistrationPage>
                           new Padding(
                             padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 15.0),
                             child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
                               style: TextStyle(
                                   fontSize: 13,
                                   fontFamily: 'BwSurcoBook'
@@ -113,6 +114,7 @@ class _RegistrationPageState extends State<RegistrationPage>
                           new Padding(
                             padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 15.0),
                             child: TextFormField(
+                              keyboardType: TextInputType.phone,
                               style: TextStyle(
                                   fontSize: 13,
                                   fontFamily: 'BwSurcoBook'

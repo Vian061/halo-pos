@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:halopos/AppBarr.dart';
 import 'package:halopos/business_form.dart';
 import 'package:halopos/components/main_drawer.dart';
 import 'package:halopos/presenters/business_presenter.dart';
@@ -237,10 +238,10 @@ class _BusinessPageState extends State<BusinessPage>
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(10.0),
-                        child: ImageInitial(entities[index].businessName, 40.0, 40.0, 16.0),
-                      ),
+//                      Padding(
+//                        padding: EdgeInsets.all(10.0),
+//                        child: ImageInitial(entities[index].businessName, 40.0, 40.0, 16.0),
+//                      ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -265,7 +266,8 @@ class _BusinessPageState extends State<BusinessPage>
         );
       },
       itemCount: entities.length,
-    ) : Column(
+    ) :
+    Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(
@@ -291,9 +293,7 @@ class _BusinessPageState extends State<BusinessPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: cAppBar(widget.title),
       drawer: MainDrawer(),
       body: Builder(
           builder: (BuildContext context) {

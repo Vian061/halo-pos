@@ -14,6 +14,7 @@ class RestDatasource {
   static final BASE_URL = "http://apihp.milogica.com";
   static final LOGIN = BASE_URL + "/user/login";
   static final REGISTRATION = BASE_URL + "/user/registration";
+  static final UPDATEPROFILE = BASE_URL + "/user/update";
   static final GETUSERBYTOKEN = BASE_URL + "/user/getbytoken";
   static final GETBUSINESSTYPE = BASE_URL + "/businesstype/get";
   static final GETAREABYLEVEL = BASE_URL + "/area/getbylevel";
@@ -35,7 +36,7 @@ class RestDatasource {
   /* ==== Authentication ==== */
   Future<ResponseAccount> login(String uid, String pwd) {
     return _netUtil.post(LOGIN, body: {
-      'mobile': uid,
+      'cellular': uid,
       'password': pwd
     }).then((dynamic res) {
       return ResponseAccount.fromJson(res);
@@ -52,6 +53,12 @@ class RestDatasource {
 
   Future<ResponseAccount> register(Account request) {
     return _netUtil.post(REGISTRATION, body: request.toMap()).then((dynamic res) {
+      return ResponseAccount.fromJson(res);
+    });
+  }
+
+  Future<ResponseAccount> update(Account request) {
+    return _netUtil.post(UPDATEPROFILE, body: request.toMap()).then((dynamic res) {
       return ResponseAccount.fromJson(res);
     });
   }

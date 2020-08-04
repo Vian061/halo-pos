@@ -18,6 +18,7 @@ class Account {
   final String identityType;
   final String identityNumber;
   final String address;
+  final String password;
   final String photo;
   final String token;
   final String firebaseToken;
@@ -29,11 +30,11 @@ class Account {
   final String updatedAt;
   final String updatedBy;
 
-  Account ({this.id, this.googleId, this.facebookId, this.uniqueId, this.fullName, this.email, this.dateOfBirth, this.phone, this.mobile, this.identityType, this.identityNumber, this.address, this.photo, this.token, this.firebaseToken, this.mobileStatus, this.emailStatus, this.status, this.createdAt, this.createdBy, this.updatedAt, this.updatedBy});
+  Account ({this.id, this.googleId, this.facebookId, this.uniqueId, this.fullName, this.email, this.dateOfBirth, this.phone, this.mobile, this.identityType, this.identityNumber, this.address, this.password, this.photo, this.token, this.firebaseToken, this.mobileStatus, this.emailStatus, this.status, this.createdAt, this.createdBy, this.updatedAt, this.updatedBy});
 
   @override
   String toString() {
-    return 'Account{id: $id, googleId: $googleId, facebookId: $facebookId, uniqueId $uniqueId, fullName: $fullName, email: $email, dateOfBirth $dateOfBirth, phone: $phone, mobile: $mobile, identityType: $identityType, identityNumber: $identityNumber, address: $address, photo: $photo, token: $token, firebaseToken: $firebaseToken, mobileStatus: $mobileStatus, emailStatus: $emailStatus, status: $status, createdAt: $createdAt, createdBy: $createdBy, updatedAt: $updatedAt, updatedBy: $updatedBy}';
+    return 'Account{id: $id, googleId: $googleId, facebookId: $facebookId, uniqueId $uniqueId, fullName: $fullName, email: $email, dateOfBirth $dateOfBirth, phone: $phone, mobile: $mobile, identityType: $identityType, identityNumber: $identityNumber, address: $address, password:$password, photo: $photo, token: $token, firebaseToken: $firebaseToken, mobileStatus: $mobileStatus, emailStatus: $emailStatus, status: $status, createdAt: $createdAt, createdBy: $createdBy, updatedAt: $updatedAt, updatedBy: $updatedBy}';
   }
 
   Map<String, dynamic> toMap() {
@@ -50,6 +51,7 @@ class Account {
     map['IdentityType'] = identityType;
     map['IdentityNumber'] = identityNumber;
     map['Address'] = address;
+    map['Password'] = password;
     map['Photo'] = photo;
     map['Token'] = token;
     map['FirebaseToken'] = firebaseToken;
@@ -78,6 +80,7 @@ class Account {
         identityType: json['IdentityType'],
         identityNumber: json['IdentityNumber'],
         address: json['Address'],
+        password: json['Password'],
         photo: json['Photo'],
         token: json['Token'],
         firebaseToken: json['TirebaseToken'],
