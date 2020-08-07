@@ -101,6 +101,14 @@ class _settingsState extends State<settings> {
                   _openCamera();
                 },
               ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: RaisedButton(
+                  onPressed: (){Navigator.of(context).pop();},
+                  color: Theme.of(context).primaryColor,
+                  child: Text("Ok"),
+                ),
+              )
             ],
           ),
         ),
@@ -161,7 +169,7 @@ class _settingsState extends State<settings> {
               Card(
                   shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.grey)
+                      side: BorderSide(color: Theme.of(context).primaryColor)
                   ),
                   margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20),
                   child: new Column(
@@ -298,10 +306,10 @@ class _settingsState extends State<settings> {
                           padding: const EdgeInsets.all(10.0),
                           shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.blue)
+                              side: BorderSide(color: Theme.of(context).primaryColor)
                           ),
                           textColor: Colors.white,
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) => updateProfile(title: "Update Profile",)));
                           },

@@ -94,7 +94,7 @@ class _updateProfileState extends State<updateProfile> implements updateProfileC
                       child: Card(
                           shape: new RoundedRectangleBorder(
                               borderRadius: new BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.grey)),
+                              side: BorderSide(color: Theme.of(context).primaryColor)),
                           margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20),
                           child: new Column(
                             children: <Widget>[
@@ -104,7 +104,7 @@ class _updateProfileState extends State<updateProfile> implements updateProfileC
                                   child: Text(
                                     'Update Profile',
                                     style: TextStyle(
-                                        color: Colors.blue,
+                                        color: Theme.of(context).primaryColor,
                                         fontSize: 22,
                                         fontFamily: 'CaroselloRegular'),
                                   )),
@@ -326,9 +326,9 @@ class _updateProfileState extends State<updateProfile> implements updateProfileC
                                   padding: const EdgeInsets.all(10.0),
                                   shape: new RoundedRectangleBorder(
                                       borderRadius: new BorderRadius.circular(18.0),
-                                      side: BorderSide(color: Colors.blue)),
+                                      side: BorderSide(color: Theme.of(context).primaryColor)),
                                   textColor: Colors.white,
-                                  color: Colors.blue,
+                                  color: Theme.of(context).primaryColor,
                                   onPressed: () {
                                     doUpdate();
                                   },

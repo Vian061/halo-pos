@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class cAppBar extends StatelessWidget implements PreferredSizeWidget{
 
-  final double _prefferedHeight = 90.0;
+  final double _prefferedHeight = 80.0;
   final _title;
   cAppBar(this._title);
 
@@ -14,11 +14,10 @@ class cAppBar extends StatelessWidget implements PreferredSizeWidget{
     return ClipPath(
       clipper: AppBarClipper(),
       child: Container(
-          height: 90, width: MediaQuery.of(context).size.width,
+          height: 80, width: MediaQuery.of(context).size.width,
           color: Theme.of(context).primaryColor,
-          padding: EdgeInsets.symmetric(vertical: 15),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 13, 8.0, 0),
+            padding: const EdgeInsets.fromLTRB(8.0, 15, 8.0, 0),
             child: Row(
               children: <Widget>[
                 IconButton(
@@ -45,10 +44,10 @@ class AppBarClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     var path = Path();
 
-    path.lineTo(0, size.height-20);
-    path.quadraticBezierTo(0, size.height, 20, size.height);
-    path.lineTo(size.width-20, size.height);
-    path.quadraticBezierTo(size.width, size.height, size.width, size.height-20);
+    path.lineTo(0, size.height-30);
+    path.quadraticBezierTo(0, size.height, 30, size.height);
+    path.lineTo(size.width-30, size.height);
+    path.quadraticBezierTo(size.width, size.height, size.width, size.height-30);
     path.lineTo(size.width, 0);
     return path;
   }

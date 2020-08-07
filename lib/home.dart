@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:halopos/AppBarr.dart';
 import 'package:halopos/components/main_drawer.dart';
 import 'package:halopos/presenters/home_presenter.dart';
 import 'package:halopos/product.dart';
@@ -293,10 +295,11 @@ class _HomePageState extends State<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).primaryColor
+    ));
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: cAppBar(widget.title),
       drawer: MainDrawer(),
       body: Builder(
           builder: (BuildContext context) {
@@ -327,6 +330,7 @@ class _HomePageState extends State<HomePage>
           }
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
           Navigator.push(context, FadeRoute(page: CategoryFormPage(title: 'Kategori Baru', entity: Category(businessId: _config.currentBusinessId))));
         },

@@ -1,11 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:halopos/activity.dart';
 import 'package:halopos/business.dart';
 import 'package:halopos/data/database_helper.dart';
+import 'package:halopos/inventory.dart';
 import 'package:halopos/login.dart';
 import 'package:halopos/models/account_model.dart';
 import 'package:halopos/report.dart';
 import 'package:halopos/settings.dart';
+import 'package:halopos/shift.dart';
 import 'package:halopos/utils/transition.dart';
 
 import '../home.dart';
@@ -88,7 +91,7 @@ class _MainDrawerState extends State<MainDrawer> {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Theme.of(context).primaryColor,
               ),
               child:
               Center(
@@ -150,7 +153,7 @@ class _MainDrawerState extends State<MainDrawer> {
             ListTile(
               title: Row(
                 children: <Widget>[
-                  Icon(Icons.shopping_basket),
+                  Icon(Icons.dashboard),
                   SizedBox(width: 8,),
                   Text('Point of Sale'),
                 ],
@@ -169,10 +172,8 @@ class _MainDrawerState extends State<MainDrawer> {
                 ],
               ),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                Navigator.push(context, FadeRoute(page: activityPage(title: 'Aktifitas')));
               },
             ),
             ListTile(
@@ -184,10 +185,8 @@ class _MainDrawerState extends State<MainDrawer> {
                 ],
               ),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                Navigator.push(context, FadeRoute(page: inventoryPage(title: 'Inventory')));
               },
             ),
             ListTile(
@@ -199,10 +198,8 @@ class _MainDrawerState extends State<MainDrawer> {
                 ],
               ),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                Navigator.push(context, FadeRoute(page: shiftPage(title: 'Shift')));
               },
             ),
             ListTile(
@@ -241,7 +238,7 @@ class _MainDrawerState extends State<MainDrawer> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, FadeRoute(page: settings(title: 'pengaturan',)));
+                Navigator.push(context, FadeRoute(page: settings(title: 'Pengaturan',)));
               },
             ),
           ],

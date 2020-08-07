@@ -97,13 +97,14 @@ class _reportPageState extends State<reportPage> {
                                   ],
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height*0.7,
-                                child: ListView(
-                                  children: <Widget>[
+                              Expanded(
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ListView(
+                                    children: <Widget>[
 
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               )
                             ],

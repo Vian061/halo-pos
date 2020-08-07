@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage>
   @override
   onAuthStateChanged(AuthState state) {
     if(state == AuthState.LOGGED_IN)
-      Navigator.push(context, ScaleRoute(page: HomePage(title: 'Home')));
+      Navigator.push(context, ScaleRoute(page: HomePage(title: 'Point of Sale')));
   }
 
   @override
@@ -62,11 +62,7 @@ class _LoginPageState extends State<LoginPage>
             _context = context;
             return Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Colors.green, Colors.yellow]
-                  ),
+                  color: Color(0xfff2f6ff),
                 ),
                 child: Center(
                   child: Wrap(
@@ -74,7 +70,7 @@ class _LoginPageState extends State<LoginPage>
                         Center(
                           child: Text('Halo POS',
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 30,
                                   fontFamily: 'CaroselloRegular'
                               ),
@@ -86,7 +82,7 @@ class _LoginPageState extends State<LoginPage>
                           child: Card(
                               shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(18.0),
-                                  side: BorderSide(color: Colors.white)
+                                  side: BorderSide(color: Theme.of(context).primaryColor)
                               ),
                               margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 20),
                               child: new Column(
@@ -95,7 +91,7 @@ class _LoginPageState extends State<LoginPage>
                                       padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
                                       child: Text('Login',
                                         style: TextStyle(
-                                            color: Colors.blue,
+                                            color: Theme.of(context).primaryColor,
                                             fontSize: 22,
                                             fontFamily: 'CaroselloRegular'
                                         ),
@@ -162,7 +158,7 @@ class _LoginPageState extends State<LoginPage>
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: <Widget>[
                                         Text('Lupa Password', style: TextStyle(
-                                            color: Colors.blue,
+                                            color: Theme.of(context).primaryColor,
                                             fontFamily: 'BwSurcoBook'
                                         ),)
                                       ],
@@ -175,10 +171,10 @@ class _LoginPageState extends State<LoginPage>
                                       padding: const EdgeInsets.all(10.0),
                                       shape: new RoundedRectangleBorder(
                                           borderRadius: new BorderRadius.circular(18.0),
-                                          side: BorderSide(color: Colors.blue)
+                                          side: BorderSide(color: Theme.of(context).primaryColor)
                                       ),
                                       textColor: Colors.white,
-                                      color: Colors.blue,
+                                      color: Theme.of(context).primaryColor,
                                       onPressed: () {
                                         doLogin();
                                       },
@@ -201,7 +197,7 @@ class _LoginPageState extends State<LoginPage>
                                             },
                                             child: Text('Daftar Sekarang',
                                               style: TextStyle(
-                                                  color: Colors.blue,
+                                                  color: Theme.of(context).primaryColor,
                                                   fontFamily: 'BwSurcoBook'
                                               ),
                                             )
