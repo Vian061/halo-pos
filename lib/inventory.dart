@@ -41,7 +41,7 @@ class _inventoryPageState extends State<inventoryPage> with TickerProviderStateM
               Expanded(child: TabBarView(
                 children: <Widget>[
                   ItemLibrary(),
-                  Icon(Icons.dashboard)
+                  Icon(Icons.camera)
                 ],
               ))
             ],
@@ -60,14 +60,13 @@ class _ItemLibraryState extends State<ItemLibrary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
       body: Column(
         children: <Widget>[
           Align(
               alignment: Alignment.topCenter,
               child: Card(
                   shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(18.0),
+                      borderRadius: new BorderRadius.circular(10.0),
                       side: BorderSide(color: Colors.white)
                   ),
                   margin: EdgeInsets.all(7),
@@ -77,24 +76,30 @@ class _ItemLibraryState extends State<ItemLibrary> {
                       Expanded(
                         flex: 1,
                         child: Container(
-                          height: 30,
-                          padding: EdgeInsets.symmetric(horizontal: 10),
                           child: TextFormField(
+                            style: TextStyle(
+                                fontSize: 13,
+                                fontFamily: 'BwSurcoBook'
+                            ),
                             decoration: InputDecoration(
-                              border: InputBorder.none,
+                                suffixIcon: IconButton(
+                                  icon: Icon(Icons.search, color: Theme.of(context).primaryColor,),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                fillColor: Colors.white,
+                                hintText: 'Search here',
+                                contentPadding: EdgeInsets.only(left: 20.0, top: 0.0, bottom: 0.0, right: 20.0)
                             ),
                           ),
                         ),
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.search,color: Theme.of(context).primaryColor,size: 25,),
-                        onPressed: (){},
                       ),
                     ],
                   )
               ),
             ),
-
           Expanded(
             flex: 1,
             child: Container(

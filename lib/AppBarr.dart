@@ -9,31 +9,68 @@ class cAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Size get preferredSize => Size.fromHeight(_prefferedHeight);
 
+
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: AppBarClipper(),
-      child: Container(
-          height: 80, width: MediaQuery.of(context).size.width,
-          color: Theme.of(context).primaryColor,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 15, 8.0, 0),
-            child: Row(
-              children: <Widget>[
-                IconButton(
-                  onPressed: (){Scaffold.of(context).openDrawer();},
-                  icon: Icon(Icons.menu),
-                  iconSize: 32,
-                  color: Colors.white,),
-                SizedBox(width: 5,),
-                Center(
-                  child: Text(_title, style: TextStyle(color: Colors.white, fontSize: 20),),
-                )
-              ],
-            ),
-          )
-      ),
-    );
+    if(_title == "Point of Sale"){
+      return ClipPath(
+        clipper: AppBarClipper(),
+        child: Container(
+            height: 80, width: MediaQuery.of(context).size.width,
+            color: Theme.of(context).primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 15, 8.0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: (){Scaffold.of(context).openDrawer();},
+                        icon: Icon(Icons.menu),
+                        iconSize: 32,
+                        color: Colors.white,),
+                      SizedBox(width: 5,),
+                      Center(
+                        child: Text(_title, style: TextStyle(color: Colors.white, fontSize: 20),),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: IconButton(icon: Icon(Icons.shopping_cart, color: Colors.white,)),
+                  )
+                ],
+              ),
+            )
+        ),
+      );
+    }
+    else{
+      return ClipPath(
+        clipper: AppBarClipper(),
+        child: Container(
+            height: 80, width: MediaQuery.of(context).size.width,
+            color: Theme.of(context).primaryColor,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 15, 8.0, 0),
+              child: Row(
+                children: <Widget>[
+                  IconButton(
+                    onPressed: (){Scaffold.of(context).openDrawer();},
+                    icon: Icon(Icons.menu),
+                    iconSize: 32,
+                    color: Colors.white,),
+                  SizedBox(width: 5,),
+                  Center(
+                    child: Text(_title, style: TextStyle(color: Colors.white, fontSize: 20),),
+                  )
+                ],
+              ),
+            )
+        ),
+      );
+    }
   }
 }
 

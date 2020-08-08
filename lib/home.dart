@@ -209,132 +209,275 @@ class _HomePageState extends State<HomePage>
 
   Widget ListCategory(List<Category> entities) {
     return (entities.length > 0 ?
-    ListView.builder(
-      itemBuilder: (context, index) {
-        return Padding(
-            padding: EdgeInsets.all(3.5),
-            child: Material(
-              type: MaterialType.canvas,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(8.0)
-                  )
+    Column(
+      children: <Widget>[
+        Align(
+          alignment: Alignment.topCenter,
+          child: Card(
+              shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.white)
               ),
-              child: InkWell(
-                focusColor: Colors.blue,
-                hoverColor: Colors.blueAccent,
-                splashColor: Colors.lightBlueAccent.withAlpha(40),
-                highlightColor: Colors.lightBlueAccent.withAlpha(40),
-                onTap: () {
-                  Navigator.push(context, FadeRoute(page: ProductPage(title: 'Produk', categoryId: entities[index].id)));
-                },
-                onLongPress: () {
-                  businessPopupMenu(entities[index]);
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.0),
-                      border: Border.all(
-                          color: Colors.blue
+              margin: EdgeInsets.all(7),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: TextFormField(
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'BwSurcoBook'
+                        ),
+                        decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.search, color: Theme.of(context).primaryColor,),
+                              onPressed: (){},
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            fillColor: Colors.white,
+                            hintText: 'Search here',
+                            contentPadding: EdgeInsets.only(left: 20.0, top: 0.0, bottom: 0.0, right: 20.0)
+                        ),
                       ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: ImageInitial(entities[index].categoryName, 40.0, 40.0, 16.0),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            new Padding(
-                                padding: EdgeInsets.all(15.0),
-                                child: Text(entities[index].categoryName,
-                                  style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 14,
-                                      fontFamily: 'BwSurcoBook'
-                                  ),
-                                )
+                  ),
+                ],
+              )
+          ),
+        ),
+        ListView.builder(
+          itemBuilder: (context, index) {
+            return Column(
+              children: <Widget>[
+                Padding(
+                    padding: EdgeInsets.all(3.5),
+                    child: Material(
+                      type: MaterialType.canvas,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(8.0)
+                          )
+                      ),
+                      child: InkWell(
+                        focusColor: Colors.blue,
+                        hoverColor: Colors.blueAccent,
+                        splashColor: Colors.lightBlueAccent.withAlpha(40),
+                        highlightColor: Colors.lightBlueAccent.withAlpha(40),
+                        onTap: () {
+                          Navigator.push(context, FadeRoute(page: ProductPage(title: 'Produk', categoryId: entities[index].id)));
+                        },
+                        onLongPress: () {
+                          businessPopupMenu(entities[index]);
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                  color: Colors.blue
+                              ),
                             ),
-                          ],
-                        )
-                      ],
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.all(10.0),
+                                  child: ImageInitial(entities[index].categoryName, 40.0, 40.0, 16.0),
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    new Padding(
+                                        padding: EdgeInsets.all(15.0),
+                                        child: Text(entities[index].categoryName,
+                                          style: TextStyle(
+                                              color: Colors.blue,
+                                              fontSize: 14,
+                                              fontFamily: 'BwSurcoBook'
+                                          ),
+                                        )
+                                    ),
+                                  ],
+                                )
+                              ],
+                            )
+                        ),
+                      ),
                     )
                 ),
-              ),
-            )
-        );
-      },
-      itemCount: entities.length,
-    ): Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(
-          Icons.info_outline,
-          color: Colors.grey,
-          size: 40.0,
-          semanticLabel: 'Text to announce in accessibility modes',
+              ],
+            );
+          },
+          itemCount: entities.length,
         ),
-        Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Text('Belum ada Kategori, silahkan tambahkan kategori item terlebih dahulu!',
-            style: TextStyle(
-              fontFamily: 'BwSurcoBook',
-              fontSize: 14.0,
-            ),
-            textAlign: TextAlign.center,
+      ],
+    ): Column(
+      children: <Widget>[
+        Align(
+          alignment: Alignment.topCenter,
+          child: Card(
+              shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.white)
+              ),
+              margin: EdgeInsets.all(7),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: TextFormField(
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'BwSurcoBook'
+                        ),
+                        decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.search, color: Theme.of(context).primaryColor,),
+                              onPressed: (){},
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            fillColor: Colors.white,
+                            hintText: 'Search here',
+                            contentPadding: EdgeInsets.only(left: 20.0, top: 0.0, bottom: 0.0, right: 20.0)
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
           ),
-        )
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.info_outline,
+                color: Colors.grey,
+                size: 40.0,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Text('Belum ada Kategori, silahkan tambahkan kategori item terlebih dahulu!',
+                  style: TextStyle(
+                    fontFamily: 'BwSurcoBook',
+                    fontSize: 14.0,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )
+            ],
+          ),
+        ),
       ],
     ));
   }
 
   @override
   Widget build(BuildContext context) {
+
+    int biaya = 0;
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Theme.of(context).primaryColor
     ));
-    return Scaffold(
-      appBar: cAppBar(widget.title),
-      drawer: MainDrawer(),
-      body: Builder(
-          builder: (BuildContext context) {
-            _context = context;
-            return Padding(
-              padding: EdgeInsets.all(8.0),
-              child: SmartRefresher(
-                controller: _refreshController,
-                enablePullUp: true,
-                child: ListCategory(_categoryList),
-                footer: ClassicFooter(
-                  loadStyle: LoadStyle.ShowWhenLoading,
-                  completeDuration: Duration(milliseconds: 500),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: cAppBar(widget.title),
+        drawer: MainDrawer(),
+        body: Builder(
+            builder: (BuildContext context) {
+              _context = context;
+              return Padding(
+                padding: EdgeInsets.all(8.0),
+                child: SmartRefresher(
+                  controller: _refreshController,
+                  enablePullUp: true,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width-20,
+                          height: 50,
+                          child: RaisedButton(
+                            padding: const EdgeInsets.all(10.0),
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(18.0),
+                                side: BorderSide(color: Theme.of(context).primaryColor)
+                            ),
+                            textColor: Colors.white,
+                            color: Theme.of(context).primaryColor,
+                            onPressed: () {
+                            },
+                            child: Text("Bayar Rp. $biaya"),
+                          )
+                        ),
+                      ),
+                      Container(
+                        child: SizedBox(
+                          height: 30,
+                          child: TabBar(
+                            unselectedLabelColor: Colors.grey,
+                            labelColor: Theme.of(context).primaryColor,
+                            indicatorSize: TabBarIndicatorSize.tab,
+                            tabs: <Widget>[
+                              Tab(
+                                text: "Library",
+                              ),
+                              Tab(
+                                text: "Custom",
+                              )
+                            ],
+                          ),
+                        ),
+                      ), //TabBar
+                      Expanded(child: TabBarView(
+                        children: <Widget>[
+                          ListCategory(_categoryList),
+                          Icon(Icons.camera)
+                        ],
+                      ))
+                    ],
+                  ),
+                  footer: ClassicFooter(
+                    loadStyle: LoadStyle.ShowWhenLoading,
+                    completeDuration: Duration(milliseconds: 500),
+                  ),
+                  header: WaterDropHeader(
+                    waterDropColor: Colors.lightBlueAccent,
+                  ),
+                  onRefresh: () async {
+                    await Future.delayed(Duration(milliseconds: 1000));
+                    _presenter.getAllCategory(Category(businessId: _config.currentBusinessId));
+                  },
+                  onLoading: () async {
+                    await Future.delayed(Duration(milliseconds: 1000));
+                    _presenter.getAllCategory(Category(businessId: _config.currentBusinessId));
+                  },
                 ),
-                header: WaterDropHeader(
-                  waterDropColor: Colors.lightBlueAccent,
-                ),
-                onRefresh: () async {
-                  await Future.delayed(Duration(milliseconds: 1000));
-                  _presenter.getAllCategory(Category(businessId: _config.currentBusinessId));
-                },
-                onLoading: () async {
-                  await Future.delayed(Duration(milliseconds: 1000));
-                  _presenter.getAllCategory(Category(businessId: _config.currentBusinessId));
-                },
-              ),
-            );
-          }
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () {
-          Navigator.push(context, FadeRoute(page: CategoryFormPage(title: 'Kategori Baru', entity: Category(businessId: _config.currentBusinessId))));
-        },
-        child: Icon(Icons.add),
+              );
+            }
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          onPressed: () {
+            Navigator.push(context, FadeRoute(page: CategoryFormPage(title: 'Kategori Baru', entity: Category(businessId: _config.currentBusinessId))));
+          },
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
